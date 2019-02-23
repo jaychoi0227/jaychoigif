@@ -1,0 +1,19 @@
+html {
+    text-align: center;    
+    background-image: url("gif.png");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#intro {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 80px;
+    color: aliceblue;
+}
+#intro2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: aliceblue;
+}
