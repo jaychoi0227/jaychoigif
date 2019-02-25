@@ -1,0 +1,61 @@
++<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Giphy Api</title>
+  <link rel="stylesheet" href="gif.css">
+  <script src="gif.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  </head>
+<body>
+  <h1 id="intro">Gif Generator</h1>
+  <div class="info">
+    
+      <form class="gif-form">
+        <input type="text" id="form-value" class="search-input-rounded">
+        <button type="submit" class="search_button"> Search for GIFs </button>
+        <input type="reset" id="reset_button" value="Reset">
+      <p id="intro2"> Get your GIF now! </p>
+    </form>
+      <div class="rando_facts animated bounceIn">
+        <img id="here_is_gif">
+      </div>
+  </div>
+
+  
+<script type="text/javascript">
+
+    
+    $( document ).ready(function(){
+
+    $('.search_button').on('click', function(){
+
+    var userInput = $('#form-value').val().trim();
+    
+    userInput = userInput.replace(/ /g, "+");
+    
+    var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + userInput + '&api_key=dc6zaTOxFJmzC';
+
+    $.ajax({url: queryURL, method: 'GET'}).done(function(response){
+        console.log(response.data);
+
+    var giphyURL = response.data[0].images.fixed_height.url;
+        console.log(giphyURL)
+
+    $('#here_is_gif').attr('src', giphyURL);
+
+    });
+
+    $('#reset_button').on('click', function(){
+         
+    $('#here_is_gif').attr("src",'');
+        })
+        
+        return false;
+      })
+    });
+
+  </script>
+
+</body>
+</html>
